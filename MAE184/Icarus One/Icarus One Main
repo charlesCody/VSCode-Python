@@ -1,0 +1,17 @@
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.animation import FuncAnimation
+
+xArray = np.array([5])
+yArray = np.array([0])
+interval = 100
+fig, ax = plt.subplots()
+def update(frames):
+    ax.clear()
+    yArray[0] = frames
+    ax.plot(xArray,yArray)
+    ax.set_xlim(0,1000)
+    ax.set_ylim(0,1000)
+    
+ani = FuncAnimation(fig, update, frames = np.arange(0,100,1), interval = interval, blit = False)
+plt.show()
